@@ -1,0 +1,16 @@
+{
+    "data": [
+        {
+          "id": 1,
+          "email": "jjoao.monteiro15@gmail.com",
+          "name": "Joao Pedro1",
+          "created_at": "2022-03-07T22:24:29.589Z"
+        },
+        {
+          "id": 2,
+          "email": "jjoao.monteiro10@gmail.com",
+          "name": "Joao",
+          "created_at": "2022-03-07T22:30:28.197Z"
+        }
+      ]
+}
