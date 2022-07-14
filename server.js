@@ -11,3 +11,5 @@ app.use(router)
 app.listen(3030, ()=>{
     console.log('Server running!');
 })
+
+module.exports = app
