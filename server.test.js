@@ -15,4 +15,14 @@ describe('API Suite test', () => {
         })
     })
     
+    describe('/user', () => {
+        it('should request post a new user and return HTTP 200', async () => {
+            const response = await request(app)
+            .post('/user')
+            .send({name: 'Erick Wendelol', email: 'erick.weondell@gmail.com'})
+            .expect(200)
+
+            assert.deepStrictEqual(response.status, 200)
+        })
+    })
 })
