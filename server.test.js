@@ -10,8 +10,8 @@ describe('API Suite test', () => {
             const response = await request(app)
             .get('/users')
             .expect(200)
-
-            assert.deepStrictEqual(response.body, users)
+            const [user, ...rest] = response.body
+            assert.deepStrictEqual(user, users[0])
         })
     })
     
