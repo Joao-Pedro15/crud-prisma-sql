@@ -1,25 +1,22 @@
 const { PrismaClient } = require('@prisma/client')
+const { response } = require('../server')
 const prisma = new PrismaClient()
 
 const createUser = async (req, res)=>{
     try{
         const { name, email } = req.body
+        let isExistsUser = await prisma.user.findUnique({ where: { email }})
+        if(isExistsUser) return res.status(401).send('errado!')
 
-        let user = await prisma.user.findUnique({ where: { email }})
-
-        if(user){
-            return res.send('Email ja em uso!')
-        }
-
-        user = await prisma.user.create({
+        let user = await prisma.user.create({
             data:{
                 name,
                 email
             }
         })
-        return res.json(user)
+        return res.status(200).json(user)
     }catch(err){
-        return res.send(err)
+        return res.status(500).send(err)
     }
 }
 
