@@ -3,6 +3,7 @@ const { describe, it } = require('mocha')
 const request = require('supertest')
 const assert = require('assert')
 const users = require('./mocks/users.json').data
+const faker = require('faker')
 
 describe('API Suite test', () => {
     describe('/users', () => {
@@ -17,9 +18,11 @@ describe('API Suite test', () => {
 
     describe('/user', () => {
         it('should request post a new user and return HTTP 200', async () => {
+            const name = faker.name.firstName()
+            const fakeUser = { name: name, email:  faker.internet.email(name)}
             const response = await request(app)
             .post('/user')
-            .send({name: 'Erick Wendelol', email: 'jooj@gmail.com'})
+            .send(fakeUser)
             .expect(200)
 
             assert.deepStrictEqual(response.status, 200)
