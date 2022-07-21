@@ -6,7 +6,7 @@ const createUser = async (req, res)=>{
     try{
         const { name, email } = req.body
         let isExistsUser = await prisma.user.findUnique({ where: { email }})
-        if(isExistsUser) return res.status(401).send('errado!')
+        if(isExistsUser) return res.status(422).send('errado!')
 
         let user = await prisma.user.create({
             data:{

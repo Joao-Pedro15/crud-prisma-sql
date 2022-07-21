@@ -27,13 +27,12 @@ describe('API Suite test', () => {
 
             assert.deepStrictEqual(response.status, 200)
         })
-        it('should a not be able to submit new user and return HTTP 401', async () => {
+        it('should a not be able to submit new user and return HTTP 422', async () => {
             const response = await request(app)
             .post('/user')
             .send({name: 'Jooj', email: 'jjoao.monteiro10@gmail.com'})
-            .expect(401)
+            .expect(422)
     
-            assert.ok(response.unauthorized)
             assert.deepStrictEqual(response.text, "errado!")
         })
     })
