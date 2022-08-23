@@ -23,13 +23,27 @@ describe('Tests from post controllers', () => {
           content: 'Conteúdo do post'
         }
         const response = await request(app)
-        .post('/post/user/4')
+        .post('/post/user/2')
         .send(body)
         .expect(200)
         deepStrictEqual(response.status, 200)
         for await (let key of Object.values(response.body)){
           notDeepStrictEqual(key, null)
         }
+      })
+    })
+
+    describe('/post', () =>{
+      it('should not have user in request new post', async () => {
+        const body = {
+          content: 'Olha o counteúdo'
+        }
+        const response = await request(app)
+        .post('/post/user/')
+        .send(body)
+        .expect(404)
+
+        deepStrictEqual(response.status, 404)
       })
     })
   })
