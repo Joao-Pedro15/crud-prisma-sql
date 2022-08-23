@@ -6,7 +6,7 @@ const createPost = async (req, res)=>{
     const { id } = req.params
     try{
         const user =  await prisma.user.findUnique({ where: {id: Number(id)}})
-        if(!user) throw new Error('User not found')
+        if(!user) return res.status(404).send('user not found')
         const post = await prisma.post.create({
             data: {
                 content,
