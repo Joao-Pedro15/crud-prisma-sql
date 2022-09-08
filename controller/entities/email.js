@@ -1,10 +1,12 @@
+const InvalidEmailError = require('./errors/invalid-email-error')
+
 module.exports = class Email {
     constructor(email) {
         this.value = email
     }
 
     create (email) {
-        if(!this.validate(email)) throw new Error('Invalid email!')
+        if(!this.validate(email)) new InvalidEmailError(email)
         return new Email(email)
     }
 
