@@ -1,4 +1,4 @@
-export class Email {
+module.exports = class Email {
     constructor(email) {
         this.value = email
     }

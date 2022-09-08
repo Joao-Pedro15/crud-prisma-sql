@@ -1,4 +1,4 @@
-export class Name {
+module.exports = class Name {
      constructor(name){
         this.value = name
     }
