@@ -1,7 +1,10 @@
+const prisma = require('../../../database/prisma')
+
 class CreateUserUseCase {
-    async execute ({ email, password }) {
+    async execute (userData) {
         try {
-            return
+            const user = prisma.user.create(userData)
+            return user
         } catch (error) {
             return error
         }
