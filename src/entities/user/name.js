@@ -1,4 +1,4 @@
-const InvalidNameError = require('./errors/invalid-name-error')
+const InvalidNameError = require('../errors/invalid-name-error')
 
 module.exports = class Name {
      constructor(name){

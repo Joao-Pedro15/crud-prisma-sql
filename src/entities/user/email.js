@@ -1,4 +1,4 @@
-const InvalidEmailError = require('./errors/invalid-email-error')
+const InvalidEmailError = require('../errors/invalid-email-error')
 
 module.exports = class Email {
     constructor(email) {
